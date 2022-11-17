@@ -22,11 +22,11 @@ for linea in libro:
             # le sumamos 1 al valor
             dic[palabra] = dic[palabra] + 1
 
-print("el libro consta de", str(cont), "palabras")
+print("A) El libro consta de", str(cont), "palabras\n")
 
 # b) (1 punto) Cuántas veces aparece la palabra "whale" (ballena) en el texto
 libro2 = open("moby.txt", encoding="utf8")
-whale = dict()
+whaleDict = dict()
 cont2 = 0
 for linea in libro2:
     linea = linea.rstrip()
@@ -35,20 +35,20 @@ for linea in libro2:
         # pasamos a minusculas todas las palabras antes de evaluarlas
         palabra = palabra.lower()
         if palabra == "whale":
-            if palabra not in whale:
+            if palabra not in whaleDict:
                 # la anyadimos con valor 1
-                whale[palabra] = 1
+                whaleDict[palabra] = 1
             else:
                 # le sumamos 1 al valor
-                whale[palabra] = whale[palabra] + 1
-print("la palabra whale aparece", whale.get("whale"), "veces")
+                whaleDict[palabra] = whaleDict[palabra] + 1
+print("B) La palabra whale aparece", whaleDict.get("whale"), "veces\n")
 
 # (1.5 puntos) Cuáles son las 20 palabras más frecuentes del texto, es decir, las que
 # aparecen más veces a lo largo del mismo, junto con el número de veces que aparece
 # cada una.
 libro3 = open("moby.txt", encoding="utf8")
 repeticiones = dict()
-
+# extraemos la palabras a un diccionario para evaluarlas
 for linea in libro3:
     linea = linea.rstrip()
     palabras = linea.split()
@@ -67,11 +67,11 @@ for clave, valor in repeticiones.items():
 lst = sorted(lst, reverse=True)
 # print(lst)
 
-print("las 20 palabras mas frecuentes en el libro son:")
+print("C) Las 20 palabras mas frecuentes en el libro son:")
 # imprimimos los 20 primeros registros
-print(lst[0:19])
+print(lst[0:19], "\n")
 
-# Cuál es la letra del abecedario con la que hay más palabras (sin repetir)
+# d) (1.5 puntos) Cuál es la letra del abecedario con la que hay más palabras (sin repetir)
 # en el texto que empiezan con esa letra, junto con el número de palabras que empiezan
 # con esa letra. Ejemplo de salida ficticia:
 
@@ -87,10 +87,13 @@ for linea in libro4:
             words[palabra[0]] = 1
         else:
             words[palabra[0]] = words[palabra[0]] + 1
-
-lst2 =list()
+#creamos una lista
+lst2 = list()
+#anyadimos los valores del diccionario, al orden inverso, para poder extraer la mas repetida
 for clave, valor in words.items():
     lst2.append((valor, clave))
+#ordenamos
 lstOrd = sorted(lst2, reverse=True)
-print(lstOrd)
-print("La letra del abecedario con la que empiezan más palabras en el texto es la", lstOrd[0][1], ".Letra por la que empiezan", lstOrd[0][0], "palabras")
+#print(lstOrd)
+print("D) La letra del abecedario con la que empiezan más palabras en el texto es la", lstOrd[0][1],
+      ".Letra por la que empiezan", lstOrd[0][0], "palabras\n")
