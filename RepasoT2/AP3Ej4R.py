@@ -49,7 +49,15 @@ def ej5():
                "Empresa e iniciativa emprendedora": 60,
                "Inglés": 40, "Formacion en centros de trabajo": 400, "Proyecto final": 40}
 
-    print(modulos.items())
+    # declaramos la variable para el total de horas
+    total = 0
+    # mostramos los modulos ordenados alfabeticamente
+    print(sorted(modulos.items()))
+    # sumamos las horas de cada modulo y mostramos el total
+    for modulo in modulos:
+        total = total + modulos[modulo]
+    print("El total de horas del curso es:", total)
+
 
 # -----------------------------------------------------------------------------------------------------
 while True:
