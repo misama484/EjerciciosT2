@@ -10,7 +10,7 @@ dic = dict()
 while True:
     # solicitamos la palabra al usuario
     palabra = input("Introduzca palabra:")
-    # comprobamos que no es "exit"
+    # si es 0 salimos
     if palabra == "0":
         break
     # anyadimos al diccionario comparando si la clave ya existe, si no existe la crea
